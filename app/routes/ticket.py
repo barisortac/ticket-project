@@ -7,9 +7,10 @@ router = APIRouter()
 
 
 @router.post("/assign")
-async def assign_ticket(payload: TicketRequest) -> None:
+async def assign_ticket(payload: TicketRequest) -> dict:
     ticket = Ticket(
         id=payload.id, languages=payload.restrictions, platform=payload.platform
     )
+    await publish_ticket(ticket=ticket)
 
-    return await publish_ticket(ticket=ticket)
+    return {"success": True}

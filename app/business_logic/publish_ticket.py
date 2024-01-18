@@ -2,14 +2,19 @@ from aio_pika import ExchangeType, Message, connect_robust
 
 from app.schemas.schemas import PlatformEnum, Ticket
 from config.config import Config
-from config.constants import (EXCHANGE_NAME, TEXT_MESSAGE_PRIORITY,
-                              TEXT_MESSAGE_QUEUE_NAME,
-                              TEXT_MESSAGE_ROUTING_KEY, VOICE_CALL_PRIORITY,
-                              VOICE_CALL_QUEUE_NAME, VOICE_CALL_ROUTING_KEY)
+from config.constants import (
+    EXCHANGE_NAME,
+    TEXT_MESSAGE_PRIORITY,
+    TEXT_MESSAGE_QUEUE_NAME,
+    TEXT_MESSAGE_ROUTING_KEY,
+    VOICE_CALL_PRIORITY,
+    VOICE_CALL_QUEUE_NAME,
+    VOICE_CALL_ROUTING_KEY,
+)
 
 
 async def _publish_ticket(
-        *, ticket: Ticket, queue_name: str, routing_key: str, priority: int
+    *, ticket: Ticket, queue_name: str, routing_key: str, priority: int
 ) -> None:
     connection = await connect_robust(Config().RABBITMQ_URL)
 

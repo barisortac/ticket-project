@@ -37,7 +37,8 @@ Therefore, I chose MongoDB as the option.
   - fetching the latest user state before updating,
   - using some caching mechanism (e.g. we set cache when we assign a ticket to an agent), of course, one of the most beautiful topics of software development is to invalidate the cache, so we need to think about when/how to invalidate the cache on that scenario.  
 - We start rabbitMQ with the fastAPI startup, we can separate those.
-- Right now languages are strict, we can remove the enum check there and make it super flexible.
+- Right now languages are strict (enum), we can remove the enum check there and make it super flexible.
+- Error handling is also important, we can define our exceptions and handle them properly (e.g. AgentNotAvailableException, AgentNotActive, ...) 
 
 ### Package Manager
 - Right now there is requirements.txt file so we use pip for libraries, but it is better to use poetry as a tool to track package dependencies 

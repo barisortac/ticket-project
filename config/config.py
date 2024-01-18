@@ -3,10 +3,15 @@ from typing import Optional
 from aio_pika import ExchangeType, connect_robust
 from pydantic_settings import BaseSettings
 
-from config.constants import (EXCHANGE_NAME, TEXT_MESSAGE_PRIORITY,
-                              TEXT_MESSAGE_QUEUE_NAME,
-                              TEXT_MESSAGE_ROUTING_KEY, VOICE_CALL_PRIORITY,
-                              VOICE_CALL_QUEUE_NAME, VOICE_CALL_ROUTING_KEY)
+from config.constants import (
+    EXCHANGE_NAME,
+    TEXT_MESSAGE_PRIORITY,
+    TEXT_MESSAGE_QUEUE_NAME,
+    TEXT_MESSAGE_ROUTING_KEY,
+    VOICE_CALL_PRIORITY,
+    VOICE_CALL_QUEUE_NAME,
+    VOICE_CALL_ROUTING_KEY,
+)
 
 
 class Config(BaseSettings):

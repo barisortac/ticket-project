@@ -3,8 +3,10 @@ from typing import Optional
 from app.database.manager import DatabaseManager
 from app.models.agent import AgentModel
 from app.schemas.schemas import PlatformEnum, Ticket
-from config.constants import (MAXIMUM_NUMBER_OF_CALL_FOR_AGENT,
-                              MAXIMUM_NUMBER_OF_TASK_FOR_AGENT)
+from config.constants import (
+    MAXIMUM_NUMBER_OF_CALL_FOR_AGENT,
+    MAXIMUM_NUMBER_OF_TASK_FOR_AGENT,
+)
 
 agent_collection = AgentModel
 
@@ -53,6 +55,7 @@ async def assign_ticket(
         await assign_text_ticket_to_agent(
             agent=agent, database_manager=database_manager
         )
+
 
 async def assign_ticket_to_agent(
     *, ticket: Ticket, database_manager: DatabaseManager
